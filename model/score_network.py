@@ -107,6 +107,7 @@ class ScoreNetwork(nn.Module):
         self.score_model = IpaScore(model_conf, diffuser)
 
         self.torsion_pred = TorsionAngleDecoder(model_conf, num_torsions=3)  # 1 \psi angle + 2 \chi angles
+        # 我们仅考虑 χ1 和 χ2 角度，因为 χ3 和 χ4 相对信息量较少且更难以准确预测
         self.aa_type_pred = ResidueTypeDecoder(model_conf)
 
 
